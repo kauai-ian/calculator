@@ -3,6 +3,7 @@ body {
   padding: 0;
   height: 100%;
   width: 100%;
+  font-family: "Roboto", sans-serif;
 }
 
 #background {
@@ -14,22 +15,34 @@ body {
 }
 
 .calc-container {
-  margin: 3rem auto;
+  margin: 15vh auto;
 
   height: 600px;
   width: 400px;
   background-color: rgba(105, 113, 227, 0.501);
-  /* border: 1px solid red; */
+  border: 1px solid darkblue;
+  border-radius: 10px;
 }
 
 .display {
   border: 1px solid rgb(94, 94, 94);
-  width: 330px;
+  width: 335px;
   height: 100px;
   background-color: white;
   padding: 10px 20px;
-  margin-left: 15px;
+  margin-left: 10px;
+  margin-top: 10px;
   text-align: right;
+  border-radius: 10px;
+  border: 2px solid black;
+}
+
+#lastOperationScreen {
+  font-size: 20px;
+}
+
+#currentOperationScreen {
+  font-size: 40px;
 }
 
 .row-container {
@@ -44,6 +57,7 @@ body {
   height: 10%;
   font-size: 2em;
   border: 2px solid black;
+  border-radius: 10px;
 }
 
 .btn-sml {
@@ -52,6 +66,7 @@ body {
   font-size: 2em;
   padding: 20px;
   border: 2px solid black;
+  border-radius: 10px;
 }
 
 button:active {
