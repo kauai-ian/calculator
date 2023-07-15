@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Calculator Project</title>
+  </head>
+  <body>
+    <div id="background">
+      <div class="calc-container">
+        <div class="display">
+          <div id="lastOperationScreen"></div>
+          <div id="currentOperationScreen"></div>
+        </div>
+        <div class="row-container">
+          <button class="btn-lrg" id="clearBtn">Clear</button>
+          <button class="btn-lrg" id="deleteBtn">Delete</button>
+        </div>
+        <div class="row-container">
+          <button class="btn-sml" data-number>7</button>
+          <button class="btn-sml" data-number>8</button>
+          <button class="btn-sml" data-number>9</button>
+          <button class="btn-sml" data-operator>÷</button>
+        </div>
+        <div class="row-container">
+          <button class="btn-sml" data-number>4</button>
+          <button class="btn-sml" data-number>5</button>
+          <button class="btn-sml" data-number>6</button>
+          <button class="btn-sml" data-operator>x</button>
+        </div>
+        <div class="row-container">
+          <button class="btn-sml" data-number>1</button>
+          <button class="btn-sml" data-number>2</button>
+          <button class="btn-sml" data-number>3</button>
+          <button class="btn-sml" data-operator>-</button>
+        </div>
+        <div class="row-container">
+          <button class="btn-sml" id="pointBtn">.</button>
+          <button class="btn-sml" data-number>0</button>
+          <button class="btn-sml" id="equalsBtn">=</button>
+          <button class="btn-sml" data-operator>+</button>
+        </div>
+      </div>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>
