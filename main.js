@@ -3,7 +3,7 @@ let firstArg = "";
 let secondArg = "";
 let operator = null;
 
-// creates a boolean check to reset the screen
+// creates a boolean check to reset the screen. If true, screen resets, otherwise keep going.
 let shouldResetScreen = false;
 
 // creates a placeholder variable for the current operation
@@ -38,11 +38,12 @@ operatorBtns.forEach((button) => {
 
 // creates a function that remembers the last number entered via the display
 function appendNumber(number) {
-  if (currentOperationScreen.textContent === 0 || shouldResetScreen)
+  if (currentOperationScreen.textContent === "0" || shouldResetScreen)
     resetScreen();
   currentOperationScreen.textContent += number;
 }
 
+// resets the screen to blank
 function resetScreen() {
   currentOperationScreen.textContent = "";
   shouldResetScreen = false;
@@ -55,6 +56,22 @@ function clear() {
   firstArg = "";
   secondArg = "";
   currentOperation = null;
+}
+
+// creates a function to add a decimal
+function appendPoint() {
+  if (shouldResetScreen) resetScreen();
+  if (currentOperationScreen.textContent === "");
+  currentOperationScreen.textContent = "0";
+  if (currentOperationScreen.textContent.includes(".")) return;
+  currentOperationScreen.textContent += ".";
+}
+
+// creates a function to delete a number
+function deleteNumber() {
+  currentOperationScreen.textContent = currentOperationScreen.textContent
+    .toString()
+    .slice(0, 1);
 }
 
 // create a function to set the operation using the operator.
@@ -70,8 +87,8 @@ function setOperation(operator) {
 //creates a function to evaluate the inputs
 function evaluate() {
   if (currentOperation === null || shouldResetScreen) return;
-  if (currentOperation === "+" && currentOperationScreen.textContent === "0") {
-    alert("you cannot divide by 0!");
+  if (currentOperation === "÷" && currentOperationScreen.textContent === "0") {
+    alert("You can't divide by 0!");
     return;
   }
   secondArg = currentOperationScreen.textContent;
@@ -87,23 +104,8 @@ function roundResult(number) {
   return Math.round(number * 1000) / 1000;
 }
 
-// creates a function to delete a number
-function deleteNumber() {
-  currentOperationScreen.textContent = currentOperationScreen.textContent
-    .toString()
-    .slice(0, 1);
-}
-
-// creates a function to add a decimal
-function appendPoint() {
-  if (shouldResetScreen) resetScreen();
-  if (currentOperationScreen.textContent === "");
-  if (currentOperationScreen.textContent.includes("."))
-    return (currentOperationScreen.textContent += ".");
-}
-
 // allow use of computer keyboard
-function handleKeyboardInput() {
+function handleKeyboardInput(e) {
   if (e.key >= 0 && e.key <= 9) appendNumber(e.key);
   if (e.key === ".") appendPoint();
   if (e.key === "=" || e.key === "Enter") evaluate();
